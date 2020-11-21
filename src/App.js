@@ -18,6 +18,9 @@ import img_man_bench from './img/man_bench.jpg';
 import img_happy_senior from './img/happy_senior.png';
 import img_woman_shopping from './img/woman_shopping.png'
 
+import { TradingViewEmbed, widgetType } from "react-tradingview-embed";
+
+
 
 class App extends React.Component {
   constructor(props) {
@@ -239,11 +242,32 @@ class App extends React.Component {
           <Nav />
           <div className="header__text-box">
             <h1 className='heading-primary'>
-              <span className="heading-primary--main">Illume Signals</span>
-              <span className="heading-primary--sub">Lighting The Path to Financial Freedom</span>
+              <span className="heading-primary--main">Let us <br/> light your path</span>
+              <span className="heading-primary--sub">World Class trading signals</span>
             </h1>
             <a href="#" className="btn btn--white btn--animated">Find Out More</a>
+            <a href="#" className="btn btn--white btn--animated">Try the demo</a>
           </div>
+
+
+
+          <TradingViewEmbed
+            widgetType={widgetType.TICKER}
+            widgetConfig={{
+              colorTheme: "dark",
+              autosize: true
+            }}
+          />
+
+
+
+
+
+
+
+
+
+
         </header>
 
         <main>

@@ -1,5 +1,5 @@
 .header {
-    height: 95vh;
+    height: 100vh;
     background-image: linear-gradient(to top,#24846cc2,#5a99592b), url(../../../src/img/hero.jpg);
     background-size: cover;
     background-position: top;
@@ -10,16 +10,58 @@
     // -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     // clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 
+    .nav {
+
+        height: 8rem;
+        border-bottom: 2px solid black;
+        backdrop-filter: blur(16px);
+        // background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
+        background-color: rgba(black, .8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+
+    .tradingview-widget-container {
+        position: absolute;
+        bottom: -40px;
+    }
+
+
 
     &__logo-box {
         position: absolute;
-        top: 1.7rem;
+        top: 1rem;
         left: 2rem;
+    }
+
+    &__links {
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+
+        color: white;
+
+        position: absolute;
+        left: 8vw;
+        display: flex;
+        width: 10vw;
+        justify-content: space-between;
+        font-size: 1.6rem;
+
+        &>*{
+            cursor: pointer;
+        }
+
+        // padding: 0 3px;
+
     }
 
     
     &__logo {
-        height: 8rem;
+        height: 6rem;
 
         &:hover {
             animation: logoEnlarge .2s;
@@ -29,11 +71,35 @@
         }
     }
 
+    &__text {
+        color: white;
+        font-size: 6rem;
+        font-family: 'Erica One', cursive;
+        cursor: default;
+
+    }
+
+    &__demo {
+        position: absolute;
+        right: 0px;
+        background-color: #FFC038;
+        height: 8rem;
+        width: 7vw;
+        font-weight: 800;
+        font-size: 1.8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        border-bottom: #FFC038 ;
+    }
+
     
     &__text-box {
         position: absolute;
         /* making position absolute makes the following (top, left) in relation to the parent element */
-        top: 10%;
+        top: 22%;
         left: 10%;
         /* we can use transform translate to then transform the item in relation to itself */
         
@@ -45,4 +111,9 @@
 
 
 
+}
+
+
+.disable-select {
+    user-select: none;
 }
