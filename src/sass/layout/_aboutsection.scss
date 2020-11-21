@@ -1,0 +1,57 @@
+.section-about {
+    // background-color: $color-grey-light-1;
+    padding: 8rem 0 33% 5%;
+    // margin-top: -25.5vh;
+    height: 100vh;
+
+    background-color: #E5E9EC;
+
+    
+
+
+    &-flex-container {
+        // background-color: #ccc;
+        // justify-content: space-around;
+        display: flex;
+        margin-top: 20vh;
+        // flex-direction: row-reverse;
+        // padding: 10px;
+
+
+    }
+
+    &-col {
+
+        flex: .5;
+        height:100%;
+        // padding: 30px;
+        // margin: 30px;
+
+        &-text {
+            margin-top: 5vh;
+            margin-left: 3vw;
+            display: flex;
+
+            border: 3px solid black;
+
+            
+
+        }
+
+
+
+
+    }
+
+
+    .about-card {
+        min-width: 30rem;
+        // border: 2px solid black;
+        padding: 2vw;
+    }
+
+
+
+
+
+}

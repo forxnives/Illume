@@ -18,6 +18,7 @@ body {
     /* this gets rid of animation shakiness! noone knows why.  put in parent element of animation elemtent */
     backface-visibility: hidden;
     margin-bottom: 15rem;
+
     
 
 
@@ -27,10 +28,11 @@ body {
         font-weight: 400;
         letter-spacing: 1.5rem;
         margin-bottom: 3rem;
-      
         animation-name: moveInLeft;
         animation-duration: 1s;
         animation-timing-function: ease-in;
+        font-family: 'Fjalla One', sans-serif;
+
         /* animation-delay: 3s; */
         /* animation-iteration-count: 3; */
       }
@@ -47,15 +49,21 @@ body {
 }
 
 .heading-secondary {
-  font-size: 3.5rem;
+
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 5rem;
+  
+  // text-decoration: underline;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 400;
   display: inline-block;
-  background-image: linear-gradient(to right, $color-light-green, $color-green);
-  -webkit-background-clip: text;
-  color: transparent;
-  letter-spacing: 2px;
+  // background-image: linear-gradient(to right, $color-light-green, $color-green);
+  // -webkit-background-clip: text;
+  // color: transparent;
+  letter-spacing: 1.5rem;
   transition: all .2s;
+  text-align: start;
+  cursor: default;
 
   &:hover {
     transform: skewY(0deg) skewX(-10deg);
@@ -66,9 +74,9 @@ body {
 
 
 .heading-tertiary {
-  font-size: $default-font-size;
+  font-size: 2.4rem;
   font-weight: 700;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 
 
   //this not thing selects everything EXCEPT its argument (last child in this case)
@@ -77,8 +85,16 @@ body {
 
 }
 
+
+.about-header {
+  position: absolute;
+  left: 16rem;
+  
+}
+
 .paragraph {
-  font-size: $default-font-size;
+
+  font-size: 2rem;
 
   &:not(:last-child) {
     margin-bottom: 3rem;
