@@ -104,9 +104,11 @@
     &:link,
     &:visited {
         font-size: $default-font-size;
+        // color: $color-green;
         color: $color-green;
         display: inline-block;
         text-decoration: none;
+
         border-bottom: 1px solid $color-green;
         padding: 3px;
         transition: all .2s;
@@ -114,10 +116,11 @@
     }
 
     &:hover{
-        background-color: $color-light-green;
-        color: $color-grey-light-1;
+        background-color: #FFC038;
+        color: black;
         box-shadow: 0 1rem 2rem rgba($color-black,.15);
         transform: translateY(-2px);
+        border-bottom: 1px solid #FFC038;
 
     }
 
@@ -126,4 +129,18 @@
         translate: transformY(0px);
     }
 
+}
+
+
+.trydemobtn {
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 60px;
+    background-color: black;
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-size: 2rem;
+    margin: auto;
+    cursor: pointer;
+    margin-top: 10vh;
 }

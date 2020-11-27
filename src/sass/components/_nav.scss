@@ -1,0 +1,12 @@
+.nav {
+
+    height: 8rem;
+    border-bottom: 2px solid black;
+    backdrop-filter: blur(16px);
+    // background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
+    background-color: rgba(black, .8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}

@@ -5,7 +5,6 @@
     
 
 
-
     //FUNCTIONALITY
 
     &-col{
@@ -14,6 +13,7 @@
         text-align: center;
         margin-top: 3rem;
     }
+
 
     &-card {
 
@@ -37,12 +37,65 @@
             overflow: hidden;
 
 
+
+
             &-front {
                 background-color:white;
             }
 
             &-back {
                 transform: rotateY(180deg);
+
+
+                .price-div {
+
+
+                    color: white;
+                    padding: 40px;
+
+                    span {
+
+                        font-size: 3rem;
+                        // padding: 200px 0;
+                    }
+
+                    h1 {
+                        font-size: 5rem;
+                    }
+
+                    &-btn {
+                        background-color: black;
+                        // border-radius: 20;
+                        padding: 10px;
+                        display: inline-block;
+                        width: 120px;
+                        cursor: pointer;
+                        margin-top: 30px;
+
+
+                        // font-family: "Lato", sans-serif;
+                        // line-height: 1.7;
+                        // box-sizing: border-box;
+                        // background-color: #FFC038;
+                        // color: #0E2C32;
+                        // animation: moveInBottom 1.8s ease-out .5s;
+                        // animation-fill-mode: backwards;
+                        // text-transform: uppercase;
+                        // text-decoration: none;
+                        // padding: 1.5rem 4rem;
+                        // font-size: 1.6rem;
+                        // font-weight: 800;
+                        // margin: 0px 20px;
+                        // display: inline-block;
+                        // border-radius: 10rem;
+                        // transition: all .2s;
+                        // position: relative;
+
+                    }
+
+
+
+                }
 
                 &-1 {
                     background-image: linear-gradient(to right bottom, $color-claret, $color-purple-dark);
@@ -60,10 +113,12 @@
 
 
 
+
         &:hover &__side-front {
             transform: rotateY(180deg);
 
         }
+
 
         
         &:hover &__side-back {
@@ -72,6 +127,8 @@
         }
 
     }
+
+
     //FRONT-CARD STYLING
     &-content-front {
 
@@ -94,6 +151,7 @@
             width: 61%;
             z-index: 0;
         }
+
 
 
         &-heading-span {
@@ -124,6 +182,7 @@
         &-3 {
             background-image: linear-gradient(to right bottom, $color-turqoise, $color-green), url(../../img/money_closeup.jpg);
         }
+
 
 
 

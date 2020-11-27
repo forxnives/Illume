@@ -10,18 +10,7 @@
     // -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     // clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 
-    .nav {
 
-        height: 8rem;
-        border-bottom: 2px solid black;
-        backdrop-filter: blur(16px);
-        // background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
-        background-color: rgba(black, .8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
 
 
     .tradingview-widget-container {
@@ -47,7 +36,7 @@
         position: absolute;
         left: 8vw;
         display: flex;
-        width: 10vw;
+        min-width: 200px;
         justify-content: space-between;
         font-size: 1.6rem;
 
@@ -84,7 +73,7 @@
         right: 0px;
         background-color: #FFC038;
         height: 8rem;
-        width: 7vw;
+        width: 15rem;
         font-weight: 800;
         font-size: 1.8rem;
         display: flex;

@@ -7,15 +7,30 @@
         
         height: 10vh;
         // padding-top: 5vh;
-        padding: 5vh 12vh 0 12vw;
+        padding: 5vh 12vw 2vh 12vw;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        // border-bottom: 2px solid white;
+        position: relative;
+        z-index : 1;
+
+
+        &:before {
+            content : "";
+            position: absolute;
+            // left    : 0;
+            bottom  : 0;
+            height  : 1px;
+            width   : 76vw;  /* or 100px */
+            // border-bottom:1px solid #FFC038;
+          }
 
 
         &-logo {
 
             max-width: 5rem;
+            margin-left: 1vw;
 
         }
 
@@ -44,16 +59,22 @@
 
     &-list-container {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
+        padding: 5vh 12vh 0 12vw;
+
+        .footer-left {
+            color: white;
+
+        }
 
 
         .footer-list {
             // border: 2px solid white;
 
-            width: 30vw;
+            width: 10vw;
             color: white;
             display: flex;
-            justify-content: center;
+            // justify-content: center;
             font-size: 2rem;
             font-weight: lighter;
 
@@ -71,6 +92,10 @@
 
 
             }
+        }
+
+        .footer-subscribe {
+            color: white;
         }
 
 

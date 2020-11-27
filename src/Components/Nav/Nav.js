@@ -1,7 +1,9 @@
 import React from 'react'
 import illumelogo from '../../img/illumenotext.png'
+import { withRouter } from 'react-router';
 
-const Nav = () => {
+const Nav = ({history, match}) => {
+    
     return(
 
 
@@ -54,9 +56,22 @@ const Nav = () => {
 
 
 
-            <div className="header__demo">
+            <div onClick={
+                
+                (match.path.length > 1 ?
+                ()=> history.push('/#section-prices'):
+                ()=> history.push('/demo'))
+                
+                
+                } className="header__demo">
 
-                <span>Start Demo</span>
+                {
+                    (match.path.length > 1 ?
+                    <span>Buy Now</span> :
+                    <span>Start Demo</span>)
+                }
+
+
                 
             </div>
 
@@ -70,4 +85,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default withRouter(Nav)

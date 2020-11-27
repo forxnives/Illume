@@ -1,0 +1,104 @@
+.active-section {
+    // background-color: ;
+    display: flex;
+    section {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+.active-container {
+    display: flex;
+    // border: 2px solid black;
+    height: 100%;
+    justify-content: center;
+    // background-color: green;
+
+}
+
+
+.active-section-title {
+
+    display: flex;
+    justify-content: center;
+    padding: 2vh;
+    border-right: 2px solid black;
+
+    h2 {
+        line-height: 1.7;
+        color: black;
+        user-select: none;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Fjalla One', sans-serif;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 400;
+        display: inline-block;
+        letter-spacing: 1rem;
+        transition: all .2s;
+        text-align: center;
+        cursor: default;
+    }
+}
+
+
+
+
+// .comments {
+//     height: 100vh;
+// }
+
+
+.info-container {
+    // border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.parent-div {
+    padding: 30px;
+    // height: 100%;
+    font-size: 1.5rem;
+    
+}
+
+.targets {
+    // height: 7vh;
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    p {
+        font-size: 2.5rem;
+    }
+
+}
+
+.signal-header {
+    height: 5vh;
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    time {
+        font-size: 2rem;
+    }
+}
+
+.signal-card {
+    max-width: 700px;
+    border: 15px solid rgba(black, .8);
+    border-radius: 20px;
+    -webkit-box-shadow:  -5px 5px 28px -6px rgba(0,0,0,0.7); 
+    box-shadow:  -5px 5px 28px -6px rgba(0,0,0,0.7);
+    background-color: #EEEEEE;
+    margin-top: 2rem;
+}
