@@ -25,6 +25,15 @@ body {
   /* borderbox best practice..put in body and use universal selector to inherit */
   /* borderbox accounts for borders in calculation of element size; definately use */
   box-sizing: border-box;
+  // overflow-y: hidden;
 
 
+}
+
+main {
+  overflow-y: auto;
+}
+
+.app {
+  height: calc(100vh);
 }

@@ -22,7 +22,8 @@ class DemoPage extends React.Component {
             status: [],
             direction: [],
             link: [],
-            loaded: false
+            loaded: false,
+            activePastToggle: true
         };
     
         //keeping an array of objects for active forecasts outside of state, to avoid unnecesary calls to backend
@@ -113,6 +114,7 @@ class DemoPage extends React.Component {
             updateUser () {
           
               //checking if update tracker has indicated a change
+              console.log('updateusering')
           
               if (this.updateTracker.tracker1 !== this.updateTracker.tracker2){
           
@@ -241,6 +243,12 @@ class DemoPage extends React.Component {
 
 
 
+            handleNavClick () {
+              this.setState({activePastToggle: !this.state.activePastToggle});
+              console.log(this.state.activePastToggle);
+            }
+
+
 
 
 
@@ -249,12 +257,56 @@ class DemoPage extends React.Component {
 
     render () {
         return (  
-            <div>
-                <Nav />
-                <Active onLoad={this.updateUser()} object={this.activeObject} date={ this.state.date } symbol={ this.state.symbol } status={ this.state.status } 
-                direction={ this.state.direction } link={ this.state.link } />
-                <Table date={ this.state.date } symbol={ this.state.symbol } status={ this.state.status } direction={ this.state.direction } link={ this.state.link }  />
-            </div>
+            <section className='demo-section'>
+
+                <Nav onLoad={this.updateUser()} />
+                <div className="demo-container">
+                  <div className="sidebar">
+                    {/* <h1>THANG THANG</h1> */}
+
+
+
+
+                    <div class="sidenav-container">
+                      <ul class="sidenav">
+                        <li onClick={() => this.setState({activePastToggle:true})} class={
+                          this.state.activePastToggle && ('active')
+                        }>
+                          <a href="#">
+                            <span class="icon-home"></span>
+                            <span class="text">Active Signals</span>
+                          </a>
+                        </li>
+                        <li onClick={() => this.setState({activePastToggle:false})} class={
+                          !this.state.activePastToggle && ('active')
+                        } >
+                          <a href="#">
+                            <span class="icon-user"></span>
+                            <span class="text">Past Signals</span>
+                          </a>
+                          </li>
+
+                      </ul>
+                    </div>
+
+
+
+
+
+                  </div>
+                  {
+                    this.state.activePastToggle ? 
+                  (<Active  object={this.activeObject} date={ this.state.date } symbol={ this.state.symbol } status={ this.state.status } 
+                  direction={ this.state.direction } link={ this.state.link } />)
+                  :
+                  (<Table date={ this.state.date } symbol={ this.state.symbol } status={ this.state.status } direction={ this.state.direction } link={ this.state.link }  />)
+                  }
+                  
+                  
+
+                </div>
+
+            </section>
 
         )
     }

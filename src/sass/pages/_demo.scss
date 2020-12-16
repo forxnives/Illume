@@ -1,5 +1,118 @@
+body {height: 100vh;}
+
+#root {
+    height: 100vh;
+}
+
+.demo-section {
+    height: 100%;
+    overflow: hidden;
+}
+
+.demo-container {
+
+    display: flex;
+    height: 100%;
+
+}
+
+.sidebar {
+    // border: 2px solid black;
+    background-color: #292929;
+    color: white;
+    height: calc(100vh - 8rem);
+
+    .sidenav-container{
+        width:15vw;
+        // margin-top:10px;
+        margin: 10px 4px 0px 4px;
+        // box-shadow: 0 2px 2px 2px black;
+        transition: all 0.3s linear;
+      }
+      .sidenav{
+        list-style-type:none;
+        margin:0;
+        padding:0;
+      }
+      li{
+        height:80px; 
+        position:relative;
+        background: linear-gradient(#292929, #242424);
+        font-size: 1.5rem;
+      }
+      a {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid black;
+        text-decoration:none;
+        display:block;
+        height:100%;
+        width:100%;
+        // line-height:50px;
+        color:#bbb;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-left:25%;
+        border-right:5px solid transparent;
+        letter-spacing:1px;
+        transition: all 0.3s linear;
+        display: flex;
+        align-items: center;
+      }
+      .active a{
+        color: #FFC038;
+        border-right:5px solid #FFC038;
+        background-color: #1B1B1B;
+        outline:0;
+      }
+      li:not(.active):hover a{
+        color: #eee;
+        border-right: 5px solid #FCFCFC;
+        background-color: #1B1B1B;
+      }
+      span[class ^= "icon"]{
+        position:absolute;
+        left:20px;
+        font-size: 1.5em;
+        transition: all 0.3s linear;
+      }
+      
+      @media only screen and (max-width : 860px){
+        
+        .text{
+          display:none;
+        }
+        
+        .sidenav-container , a{
+          width: 70px;
+          
+        }
+         
+        a:hover{
+          width:200px; 
+          z-index:1;
+          border-top: 1px solid rgba(255,255,255,0.1);
+          border-bottom: 1px solid black;
+          box-shadow: 0 0 1px 1px black;
+        }
+        
+        a:hover  .text {
+          display:block;
+          padding-left:30%;
+        }
+      }
+      @media only screen and (max-width : 480px){
+        .sidenav-container, a{ width:50px;}
+        span[class ^= "icon"]{ left:8px;}
+      }
+
+}
+
+
 .active-section {
     // background-color: ;
+    height: calc(100vh - 8rem);
+    overflow-y: auto;
+    width: 100%;
     display: flex;
     section {
         width: 100%;
@@ -17,40 +130,6 @@
     // background-color: green;
 
 }
-
-
-.active-section-title {
-
-    display: flex;
-    justify-content: center;
-    padding: 2vh;
-    border-right: 2px solid black;
-
-    h2 {
-        line-height: 1.7;
-        color: black;
-        user-select: none;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Fjalla One', sans-serif;
-        font-size: 2.5rem;
-        text-transform: uppercase;
-        font-weight: 400;
-        display: inline-block;
-        letter-spacing: 1rem;
-        transition: all .2s;
-        text-align: center;
-        cursor: default;
-    }
-}
-
-
-
-
-// .comments {
-//     height: 100vh;
-// }
 
 
 .info-container {
@@ -92,7 +171,7 @@
         font-size: 2rem;
     }
 }
-
+should I just do it like this
 .signal-card {
     max-width: 700px;
     border: 15px solid rgba(black, .8);
@@ -101,4 +180,23 @@
     box-shadow:  -5px 5px 28px -6px rgba(0,0,0,0.7);
     background-color: #EEEEEE;
     margin-top: 2rem;
+}
+
+
+
+.table-section {
+    display: flex;
+    width: 100%;
+    
+}
+
+
+
+
+.table-section-table {
+    width: 100%;
+    
+    table {
+        
+    }
 }

@@ -6,26 +6,22 @@ const Active = ({ object, date, symbol, direction, link }) => {
     return(
         <div className="active-section">
 
-            <div className="active-section-title">
+            {/* <div className="active-section-title">
                 <h2>
                     Active Signals
                 </h2>
-            </div>
+            </div> */}
             <section>
         {
             object.map((each, i) => 
 
                 <article className="test">
 
-
-
                     <div className="active-container">
                         <header className="signal-card fn fl-ns">
 
                             <article className="">
 
-
-                                
                                 <div className="signal-header fl w-100 w-50-ns bg-near-white tl">
                                     <h1 className="f5 lh-title fw9 mb0 mt0 pt3">
                                     <a href={link[i]}> {direction[i] + ' ' + symbol[i].slice(-10,-4)} </a>
@@ -36,8 +32,6 @@ const Active = ({ object, date, symbol, direction, link }) => {
                                         <time className="f6 ttu tracked gray tr">{date[i]}</time>
                                     </div>
                                 </div>
-
-
 
                                 <div class="bg-black-90 w-100">
                                     <h3 class="white sans-serif fw1 tracked">Progress</h3>
@@ -50,9 +44,6 @@ const Active = ({ object, date, symbol, direction, link }) => {
 
                                 </div>
 
-
-
-
                             </article>
 
 
@@ -60,9 +51,6 @@ const Active = ({ object, date, symbol, direction, link }) => {
                                 <a href={link[i]}><img className="mw-60" src={object[i].image} /></a>
                             </div>
                             {<div className="parent-div" dangerouslySetInnerHTML={{__html: object[i].comments}} />}
-
-
-
 
                             <div className="cf">
 
@@ -113,16 +101,9 @@ const Active = ({ object, date, symbol, direction, link }) => {
 
                             </div>
 
-
-
-
-
                         </header>
 
                         {/* <div className="info-container w-50-ns">
-
-
-
 
                         </div> */}
                     </div>

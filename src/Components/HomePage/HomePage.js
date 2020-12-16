@@ -24,11 +24,6 @@ import {
 
 
 
-
-
-
-
-
 class HomePage extends React.Component {
     constructor (props) {
         super(props);
@@ -87,14 +82,10 @@ class HomePage extends React.Component {
             tapeCopyrightDiv.remove();
             this.setState({loaded: false});
       
-      
           }
-      
       
         }
       
-
-
 
     render() {
 
