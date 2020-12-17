@@ -19,6 +19,7 @@ import {
     Switch,
     Route,
     Link,
+    withRouter,
     BrowserRouter as Router
   } from "react-router-dom";
 
@@ -42,45 +43,87 @@ class HomePage extends React.Component {
       
           // this.timerID = setInterval(() => this.iterate(), 6000);
           this.setState({loaded: true });
+
       
         };
       
-        componentDidUpdate(prevProps, prevState) {                                     //component is updating after mount
+        componentDidUpdate(prevProps, prevState) {                               
       
-        //   //checking if state has changed
-        //   if (JSON.stringify(prevState) !== JSON.stringify(this.state)) {    
-      
-        //     //getting list of links for active forecasts
-        //     let activeLinks = this.getActiveTradeUrls()
-      
-        //     //counting activeIni...page is initialized after 5 iterations
-        //     this.updateTracker.activeinit++
-            
-        //     //only proceed if there are active links
-        //     if (activeLinks.length !== 0){
-        //       if (activeLinks[0] !== undefined){
-      
-        //         //fetching data for each active forecast
-        //         activeLinks.map(link => {
-        //             this.activeFetch(link.slice(18))    //slicing to crop out 'http://fxssi/ and plugging into helper function that fetches active forecasts
-      
-        //           //since we have updated active forecasts, we want to indicate a change in the update tracker:
-        //           this.updateTracker.tracker1 === false ? this.updateTracker.tracker1 = true : this.updateTracker.tracker1 = false;
-        //         })
-        //       }
-        //     }
-        //   }
-      
-      
-      
-        //   // console.log(this.state.loaded);
       
           if (this.state.loaded) {
             let tickerCopyrightDiv =  document.querySelector('.tradingview-widget-copyright');
             tickerCopyrightDiv.remove();
+
             let tapeCopyrightDiv =  document.querySelector('.tradingview-widget-copyright');
             tapeCopyrightDiv.remove();
             this.setState({loaded: false});
+
+
+
+
+            if (this.props.location.state) {
+
+                switch (this.props.location.state.scrollTo) {
+
+                    case 'about': 
+
+
+                        const aboutSection = document.getElementById('about');
+                        aboutSection.scrollIntoView();
+                        break;
+
+                    case 'benefits':
+
+                        const benefitsSection = document.getElementById('benefits');
+                        benefitsSection.scrollIntoView();
+
+                        break;
+
+
+                    case 'pricing':
+
+                        const pricingSection = document.getElementById('section-prices');
+                        pricingSection.scrollIntoView();
+
+                        break;
+
+                }
+
+
+
+
+
+                this.props.location.state = undefined;
+
+
+
+            }else {
+                window.scrollTo(0,0)
+            }
+
+
+            console.log(this.props.location.state)
+
+            // if (this.props.location.state){
+
+            //     const { scrollTo } = this.props.location.state
+
+            //     if (scrollTo === 'about'){
+            //         this.props.location.state.scrollTo = 'top';
+            //         window.scrollTo(0, 1000); 
+            //         // console.log('thefuck')
+            //         // this.props.location.state.scrollTo = 'top';
+            //     } else if (scrollTo === 'top') {
+            //         console.log('rach?')
+            //         window.scrollTo(0,0);
+            //     }
+
+            //     console.log(this.props.location.state.scrollTo)
+            // }
+
+            
+
+
       
           }
       
@@ -96,7 +139,7 @@ class HomePage extends React.Component {
 
                 <Notifications />
                 <header className="header">
-                    <Nav />
+                    {/* <Nav /> */}
                     <div className="header__text-box">
                         <h1 className='heading-primary'>
                             <span className="heading-primary--main">Let us <br/> light your path</span>
@@ -123,7 +166,7 @@ class HomePage extends React.Component {
                 </header>
 
             <main>
-                <section className="disable-select section-about">
+                <section id='about' className="disable-select section-about">
                     <div className="about-header u-margin-bottom-big">
                         <h2 className="heading-secondary">
                             SENTIMENT-DRIVEN <br/> ANALYSIS
@@ -172,7 +215,7 @@ class HomePage extends React.Component {
 
                 </section>
 
-                <section className="disable-select section-features">
+                <section id='benefits' className="disable-select section-features">
                     <div className="features-flex-container">
                         <div className="features">
                         <div className="features-card">
@@ -542,4 +585,4 @@ class HomePage extends React.Component {
 }
 
 
-export default HomePage
+export default withRouter(HomePage)

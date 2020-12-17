@@ -7,7 +7,13 @@ import { Notifications } from 'react-push-notification';
 import addNotification from 'react-push-notification';
 import emailjs from 'emailjs-com';
 
-
+import {
+  Switch,
+  Route,
+  withRouter,
+  Link,
+  BrowserRouter as Router
+} from "react-router-dom";
 
 
 class DemoPage extends React.Component {
@@ -15,7 +21,6 @@ class DemoPage extends React.Component {
         super(props);
 
     //state
-    
         this.state = {
             date: [],
             symbol: [],
@@ -27,29 +32,22 @@ class DemoPage extends React.Component {
         };
     
         //keeping an array of objects for active forecasts outside of state, to avoid unnecesary calls to backend
-    
         this.activeObject = []
     
-        // keeping an 'update tracker' array outside of state. first value is a boolean that changes on update, and the second is the previous boolean
-        
-    
+        // keeping an 'update tracker' array outside of state. first value is a boolean that changes on update, and the second is the previous boolean   
         this.updateTracker = {
             tracker1: false,
             tracker2: false,
             activeinit: 0
         }          //we change the first value in componentDidUpdate, and send push notification only if values are different.
                                                         //we change the previous to match the present after sending notification
-        };
-
-
-
-
+    };
 
         componentDidMount() {                                                        //component has mounted after initial state
 
             //Setting up timer and calling iterate every period
-          
-              this.timerID = setInterval(() => this.iterate(), 12000);
+              this.iterate()
+              this.timerID = setInterval(() => this.iterate(), 60000);
               this.setState({loaded: true });
           
             };
@@ -79,22 +77,6 @@ class DemoPage extends React.Component {
                   }
                 }
               }
-          
-          
-          
-              // console.log(this.state.loaded);
-          
-            //   if (this.state.loaded) {
-            //     let tickerCopyrightDiv =  document.querySelector('.tradingview-widget-copyright');
-            //     tickerCopyrightDiv.remove();
-            //     let tapeCopyrightDiv =  document.querySelector('.tradingview-widget-copyright');
-            //     tapeCopyrightDiv.remove();
-            //     this.setState({loaded: false});
-          
-          
-            //   }
-          
-          
             }
           
             componentWillUnmount() {                       //clearing timer on unmount
@@ -171,6 +153,8 @@ class DemoPage extends React.Component {
             getBigJson = async () => {
               const response = await fetch('/all');
               const data = await response.json();
+
+
           
           
               const dateArray = this.arrayBuild(data, 'date');
@@ -259,7 +243,7 @@ class DemoPage extends React.Component {
         return (  
             <section className='demo-section'>
 
-                <Nav onLoad={this.updateUser()} />
+                {/* <Nav onLoad={this.updateUser()} /> */}
                 <div className="demo-container">
                   <div className="sidebar">
                     {/* <h1>THANG THANG</h1> */}
@@ -314,4 +298,4 @@ class DemoPage extends React.Component {
 
 }
 
-export default DemoPage
+export default withRouter(DemoPage)

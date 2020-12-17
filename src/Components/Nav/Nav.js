@@ -1,8 +1,11 @@
 import React from 'react'
 import illumelogo from '../../img/illumenotext.png'
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router-dom';
 
 const Nav = ({history, match}) => {
+
+
+
     
     return(
 
@@ -31,17 +34,19 @@ const Nav = ({history, match}) => {
 
 
 
-                <div className="about">
+                <div onClick={() => history.push('/', {scrollTo: 'about'}) } className="about">
+
                     About
+
                 </div>
 
-                <div className="benefits">
+                <div onClick={() => history.push('/', {scrollTo: 'benefits'}) } className="benefits">
 
                     Benefits
                 </div>
 
 
-                <div className="pricing">
+                <div onClick={() => history.push('/', {scrollTo: 'pricing'}) } className="pricing">
                     Pricing
                 </div>
 
