@@ -46,20 +46,22 @@ class App extends React.Component {
 
   render() {
     return (
+      <div className="ting">
+        <Router >
+          <div className='app'>
+            <Nav/>
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route exact path="/demo">
+                <DemoPage />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
 
-      <Router >
-        <div className='app'>
-          <Nav/>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/demo">
-              <DemoPage />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
       )
 
   };

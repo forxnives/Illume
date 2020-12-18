@@ -6,13 +6,18 @@ body {height: 100vh;}
 
 .demo-section {
     height: calc(100vh - 8rem);
-    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+
+    // overflow: hidden;
 }
 
 .demo-container {
 
     display: flex;
     height: 100%;
+    // margin-top: 8rem;
 
 }
 
@@ -21,6 +26,9 @@ body {height: 100vh;}
     background-color: #292929;
     color: white;
     height: calc(100vh - 8rem);
+    // position: fixed;
+    // bottom: 0px;
+    // left: 0px;
 
     .sidenav-container{
         width:15vw;
@@ -111,7 +119,7 @@ body {height: 100vh;}
 .active-section {
     // background-color: ;
     height: calc(100vh - 8rem);
-    overflow-y: auto;
+    // overflow-y: auto;
     width: 100%;
     display: flex;
     section {
@@ -194,6 +202,8 @@ should I just do it like this
 
 
 .table-section-table {
+
+    // margin-top: 8rem;
     width: 100%;
     
     table {

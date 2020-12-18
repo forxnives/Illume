@@ -1,5 +1,5 @@
 .header {
-    height: 100vh;
+    height: calc(100vh - 8rem);
     background-image: linear-gradient(to top,#24846cc2,#5a99592b), url(../../../src/img/hero.jpg);
     background-size: cover;
     background-position: top;

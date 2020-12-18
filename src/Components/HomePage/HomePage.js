@@ -135,7 +135,7 @@ class HomePage extends React.Component {
         return (
 
 
-            <div>
+            <div classname='full-container'>
 
                 <Notifications />
                 <header className="header">

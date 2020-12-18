@@ -4,6 +4,8 @@ import { withRouter, Link } from 'react-router-dom';
 
 const Nav = ({history, match}) => {
 
+    console.log(history.location.pathname);
+
 
 
     
@@ -63,7 +65,7 @@ const Nav = ({history, match}) => {
 
             <div onClick={
                 
-                (match.path.length > 1 ?
+                (history.location.pathname === '/demo'?
                 ()=> history.push('/#section-prices'):
                 ()=> history.push('/demo'))
                 
@@ -71,7 +73,7 @@ const Nav = ({history, match}) => {
                 } className="header__demo">
 
                 {
-                    (match.path.length > 1 ?
+                    (history.location.pathname === '/demo'?
                     <span>Buy Now</span> :
                     <span>Start Demo</span>)
                 }

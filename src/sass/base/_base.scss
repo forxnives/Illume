@@ -25,15 +25,32 @@ body {
   /* borderbox best practice..put in body and use universal selector to inherit */
   /* borderbox accounts for borders in calculation of element size; definately use */
   box-sizing: border-box;
-  // overflow-y: hidden;
+  overflow-y: hidden;
+  height: 100%;
 
 
 }
 
 main {
   // overflow-y: auto;
+
+}
+
+.ting {
+  position: relative;
+  padding-top: 8rem;
+
 }
 
 .app {
-  height: calc(100vh);
+  height: calc(100vh - 8rem);
+  position: absolute;
+  // top: 0px;
+  // bottom: 0px;
+  overflow-y: scroll;
+
+  // overflow-y: scroll;
+  // margin-top: 8rem;
 }
+
+

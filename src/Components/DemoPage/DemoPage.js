@@ -237,8 +237,6 @@ class DemoPage extends React.Component {
 
 
 
-
-
     render () {
         return (  
             <section className='demo-section'>
