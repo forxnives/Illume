@@ -5,6 +5,8 @@ import { Notifications } from 'react-push-notification';
 import addNotification from 'react-push-notification';
 import emailjs from 'emailjs-com';
 
+import {scrollHelper} from '../../utils.js';
+
 import img_man_bench from '../../img/man_bench.jpg';
 import img_happy_senior from '../../img/happy_senior.png';
 import img_woman_shopping from '../../img/woman_shopping.png'
@@ -35,7 +37,7 @@ class HomePage extends React.Component {
 
     };
 
-    
+
 
     componentDidMount() {                                                        //component has mounted after initial state
 
@@ -45,91 +47,60 @@ class HomePage extends React.Component {
           this.setState({loaded: true });
 
       
-        };
+    };
       
-        componentDidUpdate(prevProps, prevState) {                               
-      
-      
-          if (this.state.loaded) {
-            let tickerCopyrightDiv =  document.querySelector('.tradingview-widget-copyright');
-            tickerCopyrightDiv.remove();
+    componentDidUpdate(prevProps, prevState) {
+    
+    
+        if (this.state.loaded) {
+        let tickerCopyrightDiv =  document.querySelector('.tradingview-widget-copyright');
+        tickerCopyrightDiv.remove();
 
-            let tapeCopyrightDiv =  document.querySelector('.tradingview-widget-copyright');
-            tapeCopyrightDiv.remove();
-            this.setState({loaded: false});
-
-
-
-
-            if (this.props.location.state) {
-
-                switch (this.props.location.state.scrollTo) {
-
-                    case 'about': 
-
-
-                        const aboutSection = document.getElementById('about');
-                        aboutSection.scrollIntoView();
-                        break;
-
-                    case 'benefits':
-
-                        const benefitsSection = document.getElementById('benefits');
-                        benefitsSection.scrollIntoView();
-
-                        break;
-
-
-                    case 'pricing':
-
-                        const pricingSection = document.getElementById('section-prices');
-                        pricingSection.scrollIntoView();
-
-                        break;
-
-                }
+        let tapeCopyrightDiv =  document.querySelector('.tradingview-widget-copyright');
+        tapeCopyrightDiv.remove();
+        this.setState({loaded: false});
 
 
 
 
+        if (this.props.location.state) {
 
-                this.props.location.state = undefined;
+            switch (this.props.location.state.scrollTo) {
+
+                case 'about': 
 
 
+                    scrollHelper('about')
+                    break;
 
-            }else {
-                window.scrollTo(0,0)
+                case 'benefits':
+
+                    scrollHelper('benefits');
+
+                    break;
+
+
+                case 'pricing':
+
+                    scrollHelper('section-prices')
+
+                    break;
+
             }
 
+            this.props.location.state = undefined;
 
-            console.log(this.props.location.state)
-
-            // if (this.props.location.state){
-
-            //     const { scrollTo } = this.props.location.state
-
-            //     if (scrollTo === 'about'){
-            //         this.props.location.state.scrollTo = 'top';
-            //         window.scrollTo(0, 1000); 
-            //         // console.log('thefuck')
-            //         // this.props.location.state.scrollTo = 'top';
-            //     } else if (scrollTo === 'top') {
-            //         console.log('rach?')
-            //         window.scrollTo(0,0);
-            //     }
-
-            //     console.log(this.props.location.state.scrollTo)
-            // }
-
-            
-
-
-      
-          }
-      
+        }else {
+            window.scrollTo(0,0)
         }
-      
 
+        console.log(this.props.location.state)
+        }
+
+    }
+
+
+      
     render() {
 
         return (
@@ -138,18 +109,16 @@ class HomePage extends React.Component {
             <div classname='full-container'>
 
                 <Notifications />
-                <header className="header">
+                <header id='top' className="header">
                     {/* <Nav /> */}
                     <div className="header__text-box">
                         <h1 className='heading-primary'>
                             <span className="heading-primary--main">Let us <br/> light your path</span>
                             <span className="heading-primary--sub">World Class trading signals</span>
                         </h1>
-                        <a href="#" className="btn btn--white btn--animated">Find Out More</a>
+                        <a href="#about" className="btn btn--white btn--animated">Find Out More</a>
                         <Link to="/demo" className="btn btn--white btn--animated">Try the demo</Link>
                     </div>
-
-
 
                     <TradingViewEmbed
                     widgetType={widgetType.TICKER}
@@ -158,10 +127,6 @@ class HomePage extends React.Component {
                         autosize: true
                     }}
                     />
-
-
-
-
 
                 </header>
 
@@ -197,7 +162,7 @@ class HomePage extends React.Component {
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus repellendus sequi consequatur dolorum nam tempore non laboriosam veritatis quod ea, alias magni facilis exercitationem vero voluptatem similique numquam repellat beatae.
                             </p>
 
-                            <a href="#" className="btn-text">Try Demo &rarr;</a>
+                            <Link to='/demo' className="btn-text">Try Demo &rarr;</Link>
 
                         </div>
 
@@ -296,19 +261,11 @@ class HomePage extends React.Component {
                             
                             </div>
 
-
-
                             <div className="prices-card__side prices-card__side-back  prices-card__side-back-1">
-                            
-
-
-
-
+                    
                             <div className="price-div">
 
-
                                 <span>Only</span>
-
 
                                 <h1 className="price-div-heading">
                                 $9.99
@@ -316,19 +273,11 @@ class HomePage extends React.Component {
 
                                 <span>a Month</span>
 
-
                                 <div className="price-div-btn">
                                 Buy Now
                                 </div>
 
-
-
                             </div>
-
-
-
-
-
 
                             </div>
 
@@ -362,7 +311,6 @@ class HomePage extends React.Component {
                             <div className="prices-card__side prices-card__side-back  prices-card__side-back-2">
                             <div className="price-div">
 
-
                             <span>Only</span>
 
 
@@ -370,14 +318,11 @@ class HomePage extends React.Component {
                                 14.99
                             </h1>
 
-
                             <span>a Month</span>
 
                             <div className="price-div-btn">
                                 Buy Now
                             </div>
-
-
 
                             </div>
                             </div>
@@ -413,28 +358,19 @@ class HomePage extends React.Component {
 
                             <div className="price-div">
 
-
                             <span>Only</span>
-
 
                             <h1 className="price-div-heading">
                                 $24.99
                             </h1>
 
-
                             <span>a Month</span>
-
 
                             <div className="price-div-btn">
                                 Buy Now
                             </div>
 
-
-
                             </div>
-
-
-
 
                             </div>
 
@@ -443,16 +379,13 @@ class HomePage extends React.Component {
                         </div>
                     </div>
 
-                    <div className="btn trydemobtn">
+                    <div onClick={() => this.props.history.push('./demo')} className="btn trydemobtn">
                         TRY DEMO
                     </div>
 
                 </section>
 
             </main>
-
-
-
 
 
             <TradingViewEmbed
@@ -462,10 +395,6 @@ class HomePage extends React.Component {
                     autosize: true
                 }}
                 />
-
-
-
-
 
             <footer class="footer">
 
@@ -495,14 +424,7 @@ class HomePage extends React.Component {
                 </div>
 
 
-
-                
-
                 <div className="footer-list-container">
-
-
-
-
 
                     <div className="footer-left">
                     <h3>About Us</h3>
@@ -523,10 +445,6 @@ class HomePage extends React.Component {
                     </p>
                     </div>
                     
-
-
-
-
                     <div className="footer-list first-list">
 
                     <ul className="ul second-list-ul">
@@ -554,7 +472,6 @@ class HomePage extends React.Component {
 
                     </div>
 
-
                     <div className="footer-subscribe">
 
                     <h2>
@@ -563,16 +480,9 @@ class HomePage extends React.Component {
 
                     <input type="text" id="input1" placeholder="Try typing something in here!" />
 
-
                     </div>
 
-
                 </div>
-
-
-
-
-
 
             </footer>
           </div> 

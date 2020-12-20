@@ -17,6 +17,7 @@ html {
   /* we had 10 px here, but this is bad practice.  instead we set the 62.5% of default (16px) to equal 10px */
   //note that this isnt in typography, as its more of a global setting
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 

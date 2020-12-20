@@ -11,7 +11,8 @@ const Active = ({ object, date, symbol, direction, link }) => {
                     Active Signals
                 </h2>
             </div> */}
-            <section>
+            <section className='overflow-auto'
+            >
         {
             object.map((each, i) => 
 
