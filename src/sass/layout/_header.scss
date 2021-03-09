@@ -91,7 +91,14 @@
         top: 22%;
         left: 10%;
 
-        
+        border-radius: 0 100px 0 0;
+        padding: 30px;
+        background-color: rgba(0,0,0,.7);
+        -webkit-box-shadow: -10px 10px 0px 0px rgba(20, 14, 0, .6), 
+        -20px 20px 0px 0px rgba(82, 56, 0, .5), 
+        -30px 30px 0px 0px rgba(163, 112, 0, .4), 
+        -40px 40px 0px 0px rgba(245, 167, 0, .3), 
+        -50px 50px 0px 0px rgba(255, 192, 56, .2);
         /* we can use transform translate to then transform the item in relation to itself */
         
         /* transform: translate(-0%, 10%); */            
