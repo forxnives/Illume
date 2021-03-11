@@ -12,7 +12,7 @@ const Table = ({ date, symbol, status, direction, link }) => {
         <div className="table-section">
 
             <div className="table-section-table overflow-auto">
-                <table className="f6 w-100 pa7-l pa5-m pa4 center" cellSpacing="0">
+                <table className="f6 w-100 pa5-m pa4 center" cellSpacing="0">
                 <thead>
                     <tr>
                     <th className="fw6 bb b--black-20 tl pb3 pr3 bg-white">Symbol</th>

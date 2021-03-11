@@ -15,4 +15,36 @@
     width: 100%;
     z-index: 300;
 
+
+    
+
+
+
+    @media only screen and (max-width: 750px) {
+
+          div[class ^= "collapse"]{ display:none;}
+
+    }
+
+    @media only screen and (max-width: 970px) {
+
+      .header__logo{
+         display:none;
+        }
+
+    }
+
+
+    @media only screen and (max-width: 400px) {
+
+      .header__links {
+        min-width: 170px
+      }
+
+      .header__demo {
+        width: 120px;
+      }
+
+    }
+
 }

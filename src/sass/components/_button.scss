@@ -9,7 +9,7 @@
     padding: 1.5rem 4rem;  
     font-size: 1.6rem;
     font-weight: 800;
-    margin: 0px 20px;
+    margin: 10px 20px;
 
     /* always make inline-block if adding padding to elements */
     display: inline-block;  
@@ -143,4 +143,12 @@
     margin: auto;
     cursor: pointer;
     margin-top: 10vh;
+}
+
+
+@media only screen and (max-width: 450px) {
+    .btn:link, .btn:visited {
+        font-size: 1.2rem;
+        padding: .7rem 2rem;
+    }
 }

@@ -18,6 +18,7 @@ html {
   //note that this isnt in typography, as its more of a global setting
   font-size: 62.5%;
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 
@@ -34,6 +35,8 @@ body {
 
 main {
   // overflow-y: auto;
+
+  background-color: #E2F3F0;
 
 }
 

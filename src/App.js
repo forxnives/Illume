@@ -23,11 +23,14 @@ import {
 class App extends React.Component { 
   constructor(props) {
     super(props);
+
+    this.incrementActiveCount = this.incrementActiveCount.bind(this)
     
     //state
     
     this.state = {
-      loaded: false
+      loaded: false,
+      activeCount: 0
     };
 
   };
@@ -39,6 +42,21 @@ class App extends React.Component {
     this.setState({loaded: true });
 
   };
+
+
+  incrementActiveCount (localCount) {
+
+    console.log('thangthongtheng');
+    // this.setState({activeCount:localCount})
+    if (localCount > this.state.activeCount) {
+
+      this.setState({activeCount: localCount})
+    }
+  }
+
+
+
+  
 
 
 
@@ -55,7 +73,7 @@ class App extends React.Component {
                 <HomePage />
               </Route>
               <Route exact path="/demo">
-                <DemoPage />
+                <DemoPage activeCount={this.state.activeCount} countCallback={this.incrementActiveCount}  />
               </Route>
             </Switch>
           </div>

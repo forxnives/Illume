@@ -94,7 +94,7 @@ class HomePage extends React.Component {
             window.scrollTo(0,0)
         }
 
-        console.log(this.props.location.state)
+
         }
 
     }
@@ -422,6 +422,11 @@ class HomePage extends React.Component {
                     </div>
 
                 </div>
+
+                <div className="whiteline-container">
+                    <div className="whiteline"></div>
+                </div>
+                
 
 
                 <div className="footer-list-container">

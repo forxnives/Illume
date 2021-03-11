@@ -5,7 +5,8 @@ body {
     font-weight: 400;
     /* font-size: 16px; */
     line-height: 1.7;
-    color: black;
+    color: #08171b;
+    // color: white;
     // padding: 3rem;
 }
 
@@ -18,18 +19,14 @@ body {
 
     /* this gets rid of animation shakiness! noone knows why.  put in parent element of animation elemtent */
     backface-visibility: hidden;
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
+
+    text-align: initial;
 
 
     // border: 20px solid black;
 
     
-    // &:before {
-    //   content: 'YAAA';
-    //   background-color: pink;
-    //   width: 100%;
-    //   height: 500px;
-    // }
 
 
     &--main{
@@ -108,6 +105,39 @@ body {
 
   &:not(:last-child) {
     margin-bottom: 3rem;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 1208px) {
+
+
+  .about-header {
+      text-align: center;
+      position: relative;
+      left: 0px;
+      margin-bottom: 0px;
+  }
+
+  .heading-secondary {
+    text-align: center;
+  }
+
+  .section-about-col-text {
+    margin-top: 0px;
+  }
+
+
+
+}
+
+
+@media only screen and (max-width: 700px) {
+
+  .heading-secondary {
+    font-size: 4rem;
   }
 
 }

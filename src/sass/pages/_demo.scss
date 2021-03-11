@@ -52,19 +52,36 @@ body {height: 100vh;}
         border-top: 1px solid rgba(255,255,255,0.1);
         border-bottom: 1px solid black;
         text-decoration:none;
-        display:block;
+        // display:block;
         height:100%;
         width:100%;
         // line-height:50px;
         color:#bbb;
         text-transform: uppercase;
         font-weight: bold;
-        padding-left:25%;
+        padding-right:60px;
+        padding-left: 5%;
+        // padding: 0px 10%;
         border-right:5px solid transparent;
         letter-spacing:1px;
         transition: all 0.3s linear;
         display: flex;
+        justify-content: center;
         align-items: center;
+
+        span {
+          // border: 2px solid white;
+          // margin: 10px;
+          // text-align: center;
+          // position: relative;
+
+          img {
+            filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(244deg) brightness(107%) contrast(101%);
+            // position: absolute;
+          }
+          // display: block;
+        }
+
       }
       .active a{
         color: #FFC038;
@@ -79,7 +96,7 @@ body {height: 100vh;}
       }
       span[class ^= "icon"]{
         position:absolute;
-        left:20px;
+        right:20px;
         font-size: 1.5em;
         transition: all 0.3s linear;
       }
@@ -109,12 +126,38 @@ body {height: 100vh;}
         }
       }
       @media only screen and (max-width : 480px){
-        .sidenav-container, a{ width:50px;}
-        span[class ^= "icon"]{ left:8px;}
+        .sidenav-container {
+          width: 50px;
+        }
+        
+        
+        a { 
+          width:50px;
+          padding-right: 0;
+
+          img {
+            padding-left: 10px;
+          }
+        }
+
+
+        // span[class ^= "icon"]{ left:8px;}
       }
 
 }
 
+
+.loading-gif{ 
+  align-self: center;
+  margin: auto;
+}
+
+.progress-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 .active-section {
     // background-color: ;
@@ -125,19 +168,32 @@ body {height: 100vh;}
     section {
         width: 100%;
         display: flex;
-        justify-content: center;
+        // justify-content: center;
+        flex-direction: column;
+        overflow-y: auto;
     }
 }
 
 
+
+// .card-container:first-child {
+//   margin-top: 70rem;
+// }
+
+
 .active-container {
     display: flex;
-    // border: 2px solid black;
-    height: 100%;
+
+
+
+    // height: 100%;
+    // margin: 30px;
     justify-content: center;
     // background-color: green;
 
 }
+
+
 
 
 .info-container {
@@ -150,9 +206,11 @@ body {height: 100vh;}
 
 .parent-div {
     padding: 30px;
-    // height: 100%;
+    height: 100%;
     font-size: 1.5rem;
-    
+
+    background-color: white;
+
 }
 
 .targets {
@@ -172,22 +230,54 @@ body {height: 100vh;}
     height: 5vh;
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        margin: 0px 10px;
+        a {
+          text-decoration: none;
+        }
     }
 
     time {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 }
-should I just do it like this
+
+
+
 .signal-card {
-    max-width: 700px;
+    max-width: 80vw;
     border: 15px solid rgba(black, .8);
     border-radius: 20px;
     -webkit-box-shadow:  -5px 5px 28px -6px rgba(0,0,0,0.7); 
     box-shadow:  -5px 5px 28px -6px rgba(0,0,0,0.7);
     background-color: #EEEEEE;
-    margin-top: 2rem;
+    margin: 2rem;
+    border: 15px solid #191919;
+    height: auto;
+    // overflow-y: auto;
+}
+
+.card-contents-container {
+  display: flex;
+  align-items: flex-end;
+  align-content: stretch;
+  background-color: white;
+
+  .card-first-half {
+    width: 50%;
+  }
+
+
+
+
+  .card-second-half{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 50%;
+
+  }
+  
 }
 
 
@@ -207,6 +297,47 @@ should I just do it like this
     width: 100%;
     
     table {
+
+      a {
+        text-decoration: none;
+      }
         
     }
 }
+
+
+
+@media only screen and (max-width : 1300px){
+  .card-contents-container {
+    
+    flex-direction: column;
+
+    .card-first-half {
+      width: 100%;
+    }
+
+    .card-second-half {
+      width: 100%;
+    }
+
+
+
+  }
+  // span[class ^= "icon"]{ left:8px;}
+}
+
+
+
+
+
+@media only screen and (max-width : 400px){
+  .signal-card{
+    margin: 0px;
+    border: 0px ;
+  }
+}
+
+
+
+
+

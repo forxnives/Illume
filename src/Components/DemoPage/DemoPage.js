@@ -7,6 +7,11 @@ import { Notifications } from 'react-push-notification';
 import addNotification from 'react-push-notification';
 import emailjs from 'emailjs-com';
 
+import flameIcon from '../../img/flame.png';
+import pastIcon from '../../img/past.png';
+
+import Loading from '../Loading/Loading';
+
 import {
   Switch,
   Route,
@@ -30,7 +35,8 @@ class DemoPage extends React.Component {
             loaded: false,
             activePastToggle: true,
             activeObjects : [],
-            activeLinks: []
+            activeLinks: [],
+            localActiveCount: 0
         };
     
         //keeping an array of objects for active forecasts outside of state, to avoid unnecesary calls to backend
@@ -54,7 +60,6 @@ class DemoPage extends React.Component {
           
         };
           
-
           
         componentWillUnmount() {                       //clearing timer on unmount
           clearInterval(this.timerID);
@@ -64,16 +69,17 @@ class DemoPage extends React.Component {
         iterate() {                            //the iterate thats run every period
           this.getBigJson();
 
-          console.log('iterating?')
+          // console.log(this.state.activeObjects)
+          // console.log(this.state?.activeLinkArray?.[0]['comments'])
+
+          // console.log('iterating?')
         };
           
           //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
           
 
-          
         // Send Email helper function used in updateUser
         sendEmail() {
-
         
             //setting up email template parameters
             const templateParams = {
@@ -89,11 +95,10 @@ class DemoPage extends React.Component {
             emailjs.send('gmail', 'template_2YgRZVhR', templateParams, 'user_hq8Fp0UIo0ZxpAwj8BEg5')
               .then((result) => {
                   console.log(result.text);
+                  console.log(this.state.localActiveCount)
               }, (error) => {
                   console.log(error.text);
               });
-
-
 
         }
           
@@ -141,7 +146,6 @@ class DemoPage extends React.Component {
             let activeLinks = this.getActiveTradeUrls();
 
 
-
             if (activeLinks.length !== 0){
 
               if (activeLinks[0] !== undefined){
@@ -149,10 +153,14 @@ class DemoPage extends React.Component {
                 //fetching data for each active forecast
                 await this.activeMapper(activeLinks)
 
+                // console.log(this.state.activeObjects)
+
               }
             }
 
             if (!this.arrayEqualityCheck(activeLinks, this.state.activeLinks)){
+
+
               this.setState({activeLinks: activeLinks})
 
               // console.log(this.state.activeObjects.length)
@@ -164,21 +172,57 @@ class DemoPage extends React.Component {
 
 
         async activeMapper (activeLinks) {
-          await activeLinks.map( async (link, i) => {
-            let data = await this.activeFetch(link.slice(18));    //slicing out 'http://fxssi/ 
 
-            this.setState({activeObjects: [...this.state.activeObjects, this.state.activeObjects[i] = data]})
+          // const aLinks = await activeLinks.map( async (link, i) => {
+          //   let data = await this.activeFetch(link.slice(18));    //slicing out 'http://fxssi/ 
 
-   
+            
+
+          //   this.setState({activeObjects: [...this.state.activeObjects, this.state.activeObjects[i] = data]})
+          //   console.log(data)
+
+
+
+          // })
+
+          const tempArray = []
+          
+          for (let i = 0 ; i < activeLinks.length; i++) {
+            
+            let data = await this.activeFetch(activeLinks[i].slice(18));    //slicing out 'http://fxssi/ 
+
+            tempArray.push(data)
             
             if((activeLinks.length - 1) === i){
-              this.pushNotify();
-              this.sendEmail();
 
+              this.setState({localActiveCount: this.state.localActiveCount + 1})
+
+              if (this.state.localActiveCount > this.props.activeCount) {
+                // this.pushNotify();
+                // this.sendEmail();
+                this.props.countCallback(this.state.localActiveCount)
+                
+              }
             }
 
-          })
-          // console.log(this.state.activeObjects.length)
+
+
+          }
+
+          this.setState({activeObjects: tempArray})
+
+          
+
+
+          
+
+
+
+
+
+
+          
+
         }
 
         //helper function used in componentDidUpdate that returns a list of links for active forecasts..
@@ -246,16 +290,15 @@ class DemoPage extends React.Component {
         }
 
 
-
-
     render () {
         return (  
             <section className='demo-section'>
 
                 {/* <Nav onLoad={this.updateUser()} /> */}
                 <div className="demo-container">
+
+
                   <div className="sidebar">
-                    {/* <h1>THANG THANG</h1> */}
 
                     <div class="sidenav-container">
                       <ul class="sidenav">
@@ -263,16 +306,18 @@ class DemoPage extends React.Component {
                           this.state.activePastToggle && ('active')
                         }>
                           <a href="#">
-                            <span class="icon-home"></span>
                             <span class="text">Active Signals</span>
+                            <span class="icon-home"><img style={{'max-width': '30px'}} src={flameIcon} alt=""/></span>
+
                           </a>
                         </li>
                         <li onClick={() => this.setState({activePastToggle:false})} class={
                           !this.state.activePastToggle && ('active')
                         } >
                           <a href="#">
-                            <span class="icon-user"></span>
                             <span class="text">Past Signals</span>
+                            <span class="icon-user"><img style={{'max-width': '30px'}} src={pastIcon} alt=""/></span>
+
                           </a>
                           </li>
 
@@ -282,21 +327,19 @@ class DemoPage extends React.Component {
                   </div>
                   {
                     this.state.activePastToggle ? 
-                  (<Active  object={this.state.activeObjects} date={ this.state.date } symbol={ this.state.symbol } status={ this.state.status } 
-                  direction={ this.state.direction } link={ this.state.link } />)
+                  (this.state.activeObjects.length ? (<Active  object={this.state.activeObjects} date={ this.state.date } symbol={ this.state.symbol } status={ this.state.status } 
+                  direction={ this.state.direction } link={ this.state.link } />):(<Loading />))
                   :
-                  (<Table date={ this.state.date } symbol={ this.state.symbol } status={ this.state.status } direction={ this.state.direction } link={ this.state.link }  />)
+                  (this.state.symbol.length ? (<Table date={ this.state.date } symbol={ this.state.symbol } status={ this.state.status } direction={ this.state.direction } link={ this.state.link }  />):
+                  <Loading />)
                   }
                   
-                  
-
                 </div>
 
             </section>
 
         )
     }
-
 
 }
 

@@ -55,7 +55,7 @@ const Nav = ({history, match}) => {
 
         <div className= 'nav disable-select'>
 
-            <div  className='header__logo-box'>
+            <div  className='collapse header__logo-box'>
 
                 <a onClick={
                 history.location.pathname === '/demo' ?
@@ -101,7 +101,7 @@ const Nav = ({history, match}) => {
             </div>
 
             
-            <div className="header__text">
+            <div className="collapse header__text">
                 illume
             </div>
 
@@ -117,7 +117,7 @@ const Nav = ({history, match}) => {
 
                 {
                     (history.location.pathname === '/demo'?
-                    <span>Buy Now</span> :
+                    <span>Home</span> :
                     <span>Start Demo</span>)
                 }
 
