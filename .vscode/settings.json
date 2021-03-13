@@ -1,5 +1,6 @@
 {
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
-    }
+    },
+    "python.pythonPath": "/usr/bin/python2"
 }
