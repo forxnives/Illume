@@ -4,13 +4,19 @@ from scraper import *
 from activescraper import *
 from string import Template
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, static_folder='../build', static_url_path='/')
 
 url_template = Template("https://fxssi.com/${urlUrl}") 
 
 
 
-@app.route('/all')
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+
+@app.route('/api/all')
 def get_big_json():
 
     scraper = forecastsObjectList()
@@ -38,3 +44,8 @@ def get_active_json(url_url):
     activeObject = scraper.activeDictCreate(url_template.substitute(urlUrl=url_url))
     
     return activeObject;
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')

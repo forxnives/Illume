@@ -14,8 +14,8 @@ import HomePage from './Components/HomePage/HomePage';
 import {
   Switch,
   Route,
-  withRouter,
-  Link,
+  // withRouter,
+  // Link,
   BrowserRouter as Router
 } from "react-router-dom";
 
@@ -46,7 +46,7 @@ class App extends React.Component {
 
   incrementActiveCount (localCount) {
 
-    console.log('thangthongtheng');
+    
     // this.setState({activeCount:localCount})
     if (localCount > this.state.activeCount) {
 

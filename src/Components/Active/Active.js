@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 // import './Active.css';
 
 
@@ -6,17 +6,17 @@ const Active = ({ object, date, symbol, direction, link }) => {
 
 
 
-    useEffect(() => {
+    // useEffect(() => {
         
-        console.log(object)
+    //     console.log(object)
 
 
     
     
-    }, []) 
+    // }) 
     
     
-    const [ objects, setObjects ] = useState([])
+    // const [ objects, setObjects ] = useState([])
 
 
     return(
@@ -317,7 +317,7 @@ object.map((each, i) =>
 
 
                     <div className="card-first-half w-50">
-                        <a href={link[i]}><img className="mw-60" src={object[i].image} /></a>
+                        <a href={link[i]}><img alt='card1' className="mw-60" src={object[i].image} /></a>
                     </div>
 
                     <div className="card-second-half w-50">

@@ -2,8 +2,8 @@ import React from 'react';
 
 
 import { Notifications } from 'react-push-notification';
-import addNotification from 'react-push-notification';
-import emailjs from 'emailjs-com';
+// import addNotification from 'react-push-notification';
+// import emailjs from 'emailjs-com';
 
 import {scrollHelper} from '../../utils.js';
 
@@ -15,14 +15,14 @@ import illumelogo from '../../img/illumenotext.png'
 
 import { TradingViewEmbed, widgetType } from "react-tradingview-embed";
 
-import Nav from '../Nav/Nav';
+// import Nav from '../Nav/Nav';
 
 import {
-    Switch,
-    Route,
+    // Switch,
+    // Route,
     Link,
     withRouter,
-    BrowserRouter as Router
+    // BrowserRouter as Router
   } from "react-router-dom";
 
 
@@ -85,6 +85,9 @@ class HomePage extends React.Component {
                     scrollHelper('section-prices')
 
                     break;
+
+                default :
+                break;
 
             }
 
@@ -171,9 +174,9 @@ class HomePage extends React.Component {
                         
                         <div className="section-about-col u-margin-bottom-small">
                         <div className="composition">
-                            <img src={img_woman_shopping} alt="photo-1" className="composition__photo composition__photo--p1"/>
-                            <img src={img_man_bench} alt="photo-2" className="composition__photo composition__photo--p2"/>
-                            <img src={img_happy_senior} alt="photo-3" className="composition__photo composition__photo--p3"/>
+                            <img src={img_woman_shopping} alt="composition-1" className="composition__photo composition__photo--p1"/>
+                            <img src={img_man_bench} alt="composition-2" className="composition__photo composition__photo--p2"/>
+                            <img src={img_happy_senior} alt="composition-3" className="composition__photo composition__photo--p3"/>
                         </div>
                         </div>
                     </div>

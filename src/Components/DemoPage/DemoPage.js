@@ -1,9 +1,9 @@
 import React from 'react';
 import Active from '../Active/Active';
 import Table from '../Table/Table';
-import Nav from '../Nav/Nav';
+// import Nav from '../Nav/Nav';
 
-import { Notifications } from 'react-push-notification';
+// import { Notifications } from 'react-push-notification';
 import addNotification from 'react-push-notification';
 import emailjs from 'emailjs-com';
 
@@ -13,11 +13,11 @@ import pastIcon from '../../img/past.png';
 import Loading from '../Loading/Loading';
 
 import {
-  Switch,
-  Route,
+  // Switch,
+  // Route,
   withRouter,
-  Link,
-  BrowserRouter as Router
+  // Link,
+  // BrowserRouter as Router
 } from "react-router-dom";
 
 
@@ -79,28 +79,28 @@ class DemoPage extends React.Component {
           
 
         // Send Email helper function used in updateUser
-        sendEmail() {
+        // sendEmail() {
         
-            //setting up email template parameters
-            const templateParams = {
-              to_name:'Duzi',
-              image: this.state.activeObjects[this.state.activeObjects.length - 1].image,
-              entry: this.state.activeObjects[this.state.activeObjects.length - 1].entry,
-              stop_loss: this.state.activeObjects[this.state.activeObjects.length - 1].stoploss,
-              target: this.state.activeObjects[this.state.activeObjects.length - 1].target1
-            }
+        //     //setting up email template parameters
+        //     const templateParams = {
+        //       to_name:'Duzi',
+        //       image: this.state.activeObjects[this.state.activeObjects.length - 1].image,
+        //       entry: this.state.activeObjects[this.state.activeObjects.length - 1].entry,
+        //       stop_loss: this.state.activeObjects[this.state.activeObjects.length - 1].stoploss,
+        //       target: this.state.activeObjects[this.state.activeObjects.length - 1].target1
+        //     }
         
-            //sending the email
+        //     //sending the email
         
-            emailjs.send('gmail', 'template_2YgRZVhR', templateParams, 'user_hq8Fp0UIo0ZxpAwj8BEg5')
-              .then((result) => {
-                  console.log(result.text);
-                  console.log(this.state.localActiveCount)
-              }, (error) => {
-                  console.log(error.text);
-              });
+        //     emailjs.send('gmail', 'template_2YgRZVhR', templateParams, 'user_hq8Fp0UIo0ZxpAwj8BEg5')
+        //       .then((result) => {
+        //           console.log(result.text);
+        //           console.log(this.state.localActiveCount)
+        //       }, (error) => {
+        //           console.log(error.text);
+        //       });
 
-        }
+        // }
           
         //send notification helper function used in updateUser
       
@@ -119,7 +119,7 @@ class DemoPage extends React.Component {
             //Fetching  big Json and updating state
           
         getBigJson = async () => {
-          const response = await fetch('/all');
+          const response = await fetch('/api/all');
           const data = await response.json();
       
           const dateArray = this.arrayBuild(data, 'date');
@@ -235,6 +235,7 @@ class DemoPage extends React.Component {
             if (entry === 'Market') {
               activeLinkArray.push(this.state.link[i])
             }
+            return entry
           })
       
           return activeLinkArray;

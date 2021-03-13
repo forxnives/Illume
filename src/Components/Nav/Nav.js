@@ -1,13 +1,13 @@
 import React from 'react'
 import illumelogo from '../../img/illumenotext.png'
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-import {scrollHelper} from '../../utils';
+// import {scrollHelper} from '../../utils';
 
 
 const Nav = ({history, match}) => {
 
-    console.log(history.location.pathname);
+    // console.log(history.location.pathname);
 
 
     const handleScroll = (scrolllocation) => {
@@ -40,10 +40,12 @@ const Nav = ({history, match}) => {
                 const topSection = document.getElementById('top')
 
                 topSection.scrollIntoView({behavior: 'smooth', block: 'end'})
+                break
 
             default:
             
                 console.log('error!')
+                break
 
         }
         
